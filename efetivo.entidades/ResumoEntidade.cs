@@ -7,7 +7,7 @@ namespace efetivo.entidades
     public class ResumoEntidade
     {
         public long Id { get; set; }
-        public long Id1 { get; set; }
+        public long Id{ get; set; }
         public string Name { get; set; }
         public bool IsComplete { get; set; }
     }
