@@ -1,14 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace efetivo.entidades
 {
+
+
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+
+    [Table("resumo")]
     public class ResumoEntidade
     {
+        [Key]
+        [Column("id_resumo")]
         public long Id { get; set; }
-        public long Id1 { get; set; }
+
+
         public string Name { get; set; }
-        public bool IsComplete { get; set; }
+        
     }
 }
