@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\efetivo.entidades\efetivo.entidades.csproj" />
     <ProjectReference Include="..\efetivo.negocio\efetivo.negocio.csproj" />
   </ItemGroup>
 

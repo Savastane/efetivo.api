@@ -13,10 +13,10 @@ namespace efetivo.entidades
     {
         [Key]
         [Column("id_resumo")]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
+        [Column("qtde_masculino")]
+        public int qtde_masculino { get; set; }
 
-        public string Name { get; set; }
-        
     }
 }

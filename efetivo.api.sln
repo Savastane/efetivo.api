@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "efetivo.api", "efetivo.api\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "efetivo.entidades", "efetivo.entidades\efetivo.entidades.csproj", "{7407EB37-3C24-4261-B1AF-12B10DB38389}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "efetivo.negocio", "efetivo.negocio\efetivo.negocio.csproj", "{A4269790-C235-4D15-A912-6289BC17D98F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "efetivo.negocio", "efetivo.negocio\efetivo.negocio.csproj", "{A4269790-C235-4D15-A912-6289BC17D98F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataEngineer", "DataEngineer\DataEngineer.csproj", "{5D97A3C1-1B48-4DBD-82C0-1A39A519293B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataEngineer", "DataEngineer\DataEngineer.csproj", "{5D97A3C1-1B48-4DBD-82C0-1A39A519293B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "efetivo.test", "efetivo.test\efetivo.test.csproj", "{8878206E-60FB-4D7F-AE64-6AAAF4F88911}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "efetivo.repositorio", "efetivo.repositorio\efetivo.repositorio.csproj", "{DD984A59-FADD-44A0-AD1C-584E94764BF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{5D97A3C1-1B48-4DBD-82C0-1A39A519293B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D97A3C1-1B48-4DBD-82C0-1A39A519293B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D97A3C1-1B48-4DBD-82C0-1A39A519293B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8878206E-60FB-4D7F-AE64-6AAAF4F88911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8878206E-60FB-4D7F-AE64-6AAAF4F88911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8878206E-60FB-4D7F-AE64-6AAAF4F88911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8878206E-60FB-4D7F-AE64-6AAAF4F88911}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD984A59-FADD-44A0-AD1C-584E94764BF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD984A59-FADD-44A0-AD1C-584E94764BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD984A59-FADD-44A0-AD1C-584E94764BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD984A59-FADD-44A0-AD1C-584E94764BF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using efetivo.entidades;
+using efetivo.negocio;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,15 +11,20 @@ namespace efetivo.api.Controller
 {
     [Route("api/v1")]
     [ApiController]
+    
     public class ResumoController : ControllerBase
     {
-        [HttpGet("Resumo")]
 
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Resumo()
+
+        [HttpGet("Resumo")]
+        [ProducesResponseType(typeof(ResumoEntidade), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ResumoEntidade>  Resumo()
         {
-            return Ok("Api Funcionando");
+            
+            return await ResumoNegocio.Instance.GetResumo(1);
+
+         
         }
     }
 }

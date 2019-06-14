@@ -1,29 +1,46 @@
-﻿using System;
+﻿using efetivo.entidades;
+using efetivo.repositorio;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using DataEngineer;
+using System.Threading.Tasks;
 
 namespace efetivo.negocio
 {
 
-    public class ResumoNegocio: BaseEfetivoNegocio<ACAO_RECURSO>, IResumoNegocio, IDisposable
+    public class ResumoNegocio:  IResumoNegocio
     {
+        #region Singleton
 
-        public ResumoNegocio(): base()
+        private ResumoRepositorio repositorio = new ResumoRepositorio();
+            
+        private static volatile ResumoNegocio instance;
+        private static object syncRoot = new Object();
+
+        public static ResumoNegocio Instance
         {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (instance == null)
+                            instance = new ResumoNegocio();
+                    }
+                }
+
+                return instance;
+            }
+        }
+
+        #endregion Singleton
+
+        public async Task<ResumoEntidade> GetResumo(int id_unidade)
+        {   
+            return await repositorio.GetResumo(id_unidade);
 
         }
 
-        public ResumoNegocio(IUnitOfWork unitOfWork)
-            : base(unitOfWork)
-        {
-
-        }
-
-
-    }
-    public class ACAO_RECURSO
-    {
-        public long Id { get; set; }
     }
 }
