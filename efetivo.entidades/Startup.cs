@@ -15,18 +15,5 @@
 
 
 
-        public void ConfigureServices(IServiceCollection services)
-        {   
-            
-            services.AddEntityFrameworkNpgsql()
-            .AddDbContext<ResumoContext>(options => options.UseNpgsql(ConfigurationManager.AppSettings["dbefetivo"]));
-        }
-
-        
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-           
-        }
-
     }
 }
