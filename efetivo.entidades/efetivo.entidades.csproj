@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DataEngineer\DataEngineer.csproj" />
+    <ProjectReference Include="..\DataEngineer\reusecode.csproj" />
   </ItemGroup>
 
   <ItemGroup>
