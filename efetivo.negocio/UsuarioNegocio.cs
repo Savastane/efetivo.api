@@ -87,7 +87,7 @@ namespace efetivo.negocio
 
             }
 
-            return "0";
+            return "-1";
 
         }
 
