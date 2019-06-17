@@ -40,7 +40,7 @@ namespace efetivo.negocio
 
         #endregion Singleton
 
-        public LoginModel Autenticar(LoginModel Usuario, String secretJWT = "UmaChave @FortePrecisadeNumeros2020")
+        public LoginModel Autenticar(LoginModel Usuario, String secretJWT = "UmaChave@FortePrecisadeNumeros2020")
         {
             // obter dados 
             var usuario = repositorio.Auntenticar(Usuario.Email, Usuario.Senha);
