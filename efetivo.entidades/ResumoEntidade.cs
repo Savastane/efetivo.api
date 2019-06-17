@@ -1,14 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace efetivo.entidades
 {
-    public class ResumoEntidade
+
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
+
+    [Table("resumo")]
+    public partial class ResumoEntidade
     {
-        public long Id { get; set; }
-        public long Id{ get; set; }
-        public string Name { get; set; }
-        public bool IsComplete { get; set; }
+        [Key]
+        [Column("id_resumo")]
+        public int Id { get; set; }
+
+        [Column("qtde_masculino")]
+        public int qtde_masculino { get; set; }
+
     }
 }
