@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DataEngineer\reusecode.csproj" />
     <ProjectReference Include="..\efetivo.entidades\efetivo.entidades.csproj" />
+    <ProjectReference Include="..\efetivo.model\efetivo.model.csproj" />
   </ItemGroup>
 
 </Project>

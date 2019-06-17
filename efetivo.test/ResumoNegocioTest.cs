@@ -3,6 +3,7 @@ using Xunit;
 using efetivo.negocio;
 using efetivo.entidades;
 using System.Threading.Tasks;
+using efetivo.model;
 
 namespace efetivo.test
 {

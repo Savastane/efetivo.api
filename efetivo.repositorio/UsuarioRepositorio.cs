@@ -13,6 +13,7 @@ namespace efetivo.repositorio
     using System;
     using System.Linq;
     using efetivo.model.converter;
+    using efetivo.model;
 
     public class UsuarioRepositorio  : BaseRepositorio<UsuarioEntidade, EfetivoContext> 
     {
@@ -40,13 +41,15 @@ namespace efetivo.repositorio
 
        
 
-        public LoginModlel Auntenticar(string email, string senha)
+        public LoginModel Auntenticar(string email, string senha)
         {
 
-            //var usuario = new LoginConverter().Parse(repositorio.Auntenticar(Usuario.Email, Usuario.Senha));
+            
 
             return new LoginConverter().Parse(
+
                 this.List().Where(u => u.Email == email && u.Senha == senha).FirstOrDefault()
+
                 );
 
 
