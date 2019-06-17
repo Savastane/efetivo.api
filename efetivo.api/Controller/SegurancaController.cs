@@ -49,8 +49,23 @@ namespace efetivo.api.Controller
         [HttpGet("seguranca/usuario")]        
         public IActionResult GetAll()
         {
+            //var claims (System.Security.Claims.ClaimsIdentity)User.Identity;
+
+
             return Ok(UsuarioNegocio.Instance.getUsuario());
             //return NotFound(null);
         }
+
+        [HttpGet("seguranca/claim")]
+        public IActionResult Getclaim()
+        {
+            //var claims (System.Security.Claims.ClaimsIdentity)User.Identity;
+
+
+            return Ok(UsuarioNegocio.Instance.getClaim(this.HttpContext));
+            
+        }
+
+
     }
 }

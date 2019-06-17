@@ -1,12 +1,12 @@
 ﻿using efetivo.model;
 using efetivo.model.converter;
 using efetivo.repositorio;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Http;
+using reusecode.Security;
 using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
+
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace efetivo.negocio
@@ -49,23 +49,15 @@ namespace efetivo.negocio
             if (usuario == null)
                 return null;
 
-            // authentication successful so generate jwt token
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(secretJWT);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.Name, usuario.IdUsuario.ToString())
-                }),
+            usuario.Token = 
+                Security.CreateToken(
+                                        new Claim[] {
+                                                       new Claim(ClaimTypes.Name, usuario.IdUsuario.ToString())
+                                                    }
+                                        , secretJWT
+                                    );
 
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            usuario.Token = tokenHandler.WriteToken(token);
 
-            // remove password before returning
             usuario.Senha = null;
 
             
@@ -80,6 +72,22 @@ namespace efetivo.negocio
             
             
             return new LoginConverter().Parse(repositorio.Find(1)); 
+
+        }
+
+        public string getClaim(HttpContext httpContext)
+        {
+            var identity = httpContext.User.Identity as ClaimsIdentity;
+
+            if (identity != null)
+            {
+                IEnumerable<Claim> claims = identity.Claims;
+                
+                return identity.FindFirst(ClaimTypes.Name).Value;
+
+            }
+
+            return "0";
 
         }
 
