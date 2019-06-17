@@ -3,16 +3,11 @@
 namespace efetivo.api.Controller
 {
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using efetivo.entidades;
     using efetivo.negocio;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authorization;
-    
+    using efetivo.model;
 
     [Authorize]
     [Route("api/v1")]
@@ -30,15 +25,14 @@ namespace efetivo.api.Controller
 
         [AllowAnonymous]
         [HttpPost("seguranca/autenticar")]
-        [ProducesResponseType(typeof(UsuarioEntidade), StatusCodes.Status200OK)]
-        
+        [ProducesResponseType(typeof(LoginModel), StatusCodes.Status200OK)]        
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public IActionResult Autenticar([FromBody]UsuarioEntidade usuario)
+        public IActionResult Autenticar([FromBody]LoginModel usuario)
         {
 
             var usuarioretorno = UsuarioNegocio.Instance.Autenticar(usuario);
 
-             if (usuarioretorno == null)
+             if (usuarioretorno.IdUsuario == 0)
              {
                 return Unauthorized();
              }

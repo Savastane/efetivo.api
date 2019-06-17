@@ -11,7 +11,7 @@ namespace efetivo.test
         [Fact]
         public async void Consultar()
         {
-            ResumoEntidade entidade = await ResumoNegocio.Instance.GetResumo(1);
+            ResumoModel entidade = await ResumoNegocio.Instance.GetResumo(1);
 
             Assert.Equal(1, entidade.Id);
 

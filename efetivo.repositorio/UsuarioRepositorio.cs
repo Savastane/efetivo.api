@@ -11,6 +11,8 @@ namespace efetivo.repositorio
     using System.Security.Claims;
     using Microsoft.IdentityModel.Tokens;
     using System;
+    using System.Linq;
+    using efetivo.model.converter;
 
     public class UsuarioRepositorio  : BaseRepositorio<UsuarioEntidade, EfetivoContext> 
     {
@@ -36,40 +38,18 @@ namespace efetivo.repositorio
 
         }
 
+       
 
-        
-
-        
-               
-
-        public UsuarioEntidade Auntenticar(string username, string password, string secretJWT)
+        public LoginModlel Auntenticar(string email, string senha)
         {
-            var usuario = this.Find(1);
 
-            // return null if user not found
-            if (usuario == null)
-                return null;
+            //var usuario = new LoginConverter().Parse(repositorio.Auntenticar(Usuario.Email, Usuario.Senha));
 
-            // authentication successful so generate jwt token
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(secretJWT);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.Name, usuario.IdUsuario.ToString())
-                }),
+            return new LoginConverter().Parse(
+                this.List().Where(u => u.Email == email && u.Senha == senha).FirstOrDefault()
+                );
 
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            usuario.Token = tokenHandler.WriteToken(token);
 
-            // remove password before returning
-            usuario.Senha = null;
-
-            return usuario;
         }
 
 

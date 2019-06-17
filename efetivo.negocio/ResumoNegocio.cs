@@ -1,12 +1,14 @@
-﻿using efetivo.entidades;
-using efetivo.repositorio;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+
 
 namespace efetivo.negocio
 {
+
+    using efetivo.repositorio;
+    using System;    
+    using System.Threading.Tasks;
+    using System.Linq;    
+    using efetivo.model;
 
     public class ResumoNegocio:  IResumoNegocio
     {
@@ -36,8 +38,8 @@ namespace efetivo.negocio
 
         #endregion Singleton
 
-        public async Task<ResumoEntidade> GetResumo(int id_unidade)
-        {   
+        public async Task<ResumoModel> GetResumo(int id_unidade)
+        {
             return await repositorio.GetResumo(id_unidade);
 
         }

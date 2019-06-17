@@ -24,7 +24,7 @@ namespace efetivo.entidades
         public string Email { get; set; }
 
         [Column("posto")]
-        public string Psto { get; set; }
+        public string Posto { get; set; }
 
         [Column("senha")]
         public string Senha { get; set; }
