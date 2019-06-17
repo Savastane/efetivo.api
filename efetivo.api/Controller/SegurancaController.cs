@@ -8,6 +8,7 @@ namespace efetivo.api.Controller
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authorization;
     using efetivo.model;
+    using System.Security.Claims;
 
     [Authorize]
     [Route("api/v1")]
@@ -59,10 +60,10 @@ namespace efetivo.api.Controller
         [HttpGet("seguranca/claim")]
         public IActionResult Getclaim()
         {
-            //var claims (System.Security.Claims.ClaimsIdentity)User.Identity;
-
-
-            return Ok(UsuarioNegocio.Instance.getClaim(this.HttpContext));
+            
+            
+            
+            return Ok(UsuarioNegocio.Instance.getClaim((ClaimsIdentity)User.Identity));
             
         }
 

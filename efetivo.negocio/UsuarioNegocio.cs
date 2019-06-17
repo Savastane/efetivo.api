@@ -1,13 +1,12 @@
 ﻿using efetivo.model;
 using efetivo.model.converter;
 using efetivo.repositorio;
-using Microsoft.AspNetCore.Http;
+
 using reusecode.Security;
 using System;
 using System.Collections.Generic;
-
 using System.Security.Claims;
-using System.Threading.Tasks;
+
 
 namespace efetivo.negocio
 {
@@ -75,9 +74,9 @@ namespace efetivo.negocio
 
         }
 
-        public string getClaim(HttpContext httpContext)
+        public string getClaim(ClaimsIdentity identity)
         {
-            var identity = httpContext.User.Identity as ClaimsIdentity;
+            
 
             if (identity != null)
             {
