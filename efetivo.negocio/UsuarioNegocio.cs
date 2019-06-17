@@ -75,8 +75,7 @@ namespace efetivo.negocio
         }
 
         public string getClaim(ClaimsIdentity identity)
-        {
-            
+        {   
 
             if (identity != null)
             {
