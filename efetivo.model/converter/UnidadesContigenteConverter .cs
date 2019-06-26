@@ -73,8 +73,8 @@ namespace efetivo.model.converter
             }
             else
             {
-
-
+                
+                
                 return new UnidadesContigenteModel
                 {
                     IdUnidade = origin.IdUnidade,
@@ -127,6 +127,8 @@ namespace efetivo.model.converter
             else
             {
                 return Task.Run(() => {
+
+                    
 
                     return origin.Select(item => ParseAwait(item)).ToList();
                 });
