@@ -38,7 +38,7 @@ namespace efetivo.api.Controller
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<UnidadesContigenteModel> Unidades(int id)
         {
-            return await UnidadesNegocio.Instance.GetUnidade(2);
+            return await UnidadesNegocio.Instance.GetUnidade(1);
 
         }
     }
