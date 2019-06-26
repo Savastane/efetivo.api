@@ -34,7 +34,7 @@ namespace efetivo.api.Controller
         [HttpGet("resumo")]
         [ProducesResponseType(typeof(ResumoModel), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<List<UnidadesContigenteModel>> GetUnidadesContigente()
+        public async Task<List<ResumoModel>> GetResumo()
         {
             return null; // await ResumoNegocio.Instance.GetResumo(1);
         }
