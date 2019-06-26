@@ -6,8 +6,7 @@ namespace efetivo.model
 
     
     public partial class LoginModel 
-    {
-        
+    {        
         
         public int IdUsuario { get; set; }
                 

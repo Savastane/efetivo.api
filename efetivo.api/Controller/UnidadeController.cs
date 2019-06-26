@@ -12,34 +12,39 @@ namespace efetivo.api.Controller
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
 
-
+    [Authorize]
     [Route("api/v1")]
     [ApiController]
     
-    public class ResumoController : ControllerBase
+    public class UnidadeController : ControllerBase
     {
 
-        [Authorize]
-        [HttpGet("Resumo/{id}")]
+
+        [HttpGet("unidade")]
         [ProducesResponseType(typeof(ResumoModel), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ResumoModel> Resumo(int id)
+        public async Task<ResumoModel> Unidade()
         {   
-            return await  ResumoNegocio.Instance.GetResumo(id);
+            return await  ResumoNegocio.Instance.GetResumo(1);
 
         }
 
 
-        [Authorize]
-        [HttpGet("UnidadesContigente")]
+
+        [HttpGet("unidades/{id}")]
         [ProducesResponseType(typeof(ResumoModel), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<List<UnidadesContigenteModel>> GetUnidadesContigente()
+        public async Task<ResumoModel> Unidades(int id)
         {
-            return await ResumoNegocio.Instance.GetUnidadesContigente();
-        }
+            return await ResumoNegocio.Instance.GetResumo(1);
 
+        }
     }
+
+    
+
+
+    
 }
 
 

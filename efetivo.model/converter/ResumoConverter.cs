@@ -84,7 +84,7 @@ namespace efetivo.model.converter
             }
         }
 
-        public Task<List<ResumoModel>> ParseList(List<ResumoEntidade> origin)
+        public Task<List<ResumoModel>> ParseList(IQueryable<ResumoEntidade> origin)
         {
             if (origin == null)
             {
@@ -101,7 +101,7 @@ namespace efetivo.model.converter
             }
         }
 
-        public Task<List<ResumoEntidade>> ParseList(List<ResumoModel> origin)
+        public Task<List<ResumoEntidade>> ParseList(IQueryable<ResumoModel> origin)
         {
             if (origin == null)
             {

@@ -9,9 +9,8 @@ namespace efetivo.negocio
     using System.Threading.Tasks;
     using System.Linq;    
     using efetivo.model;
-    using System.Collections.Generic;
 
-    public class ResumoNegocio:  IResumoNegocio
+    public class UnidadesNegocio:  IResumoNegocio
     {
         #region Singleton
 
@@ -39,22 +38,11 @@ namespace efetivo.negocio
 
         #endregion Singleton
 
-        public async Task<ResumoModel> GetResumo(int id_unidade)
+        public async Task<UnidadeModel> GetUnidade(int id_unidade)
         {
-            return await repositorio.GetResumo(id_unidade);
+            return null; // await repositorio.GetResumo(id_unidade);
 
         }
-
-        public async Task<List<UnidadesContigenteModel>> GetUnidadesContigente()
-        {            
-            using (UnidadesContigenteRepositorio repositorio = new UnidadesContigenteRepositorio())
-            {
-                return await repositorio.GetUnidadesContigente();
-            }
-                        
-        }
-        
-
 
     }
 }
