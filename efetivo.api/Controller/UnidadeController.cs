@@ -12,7 +12,7 @@ namespace efetivo.api.Controller
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
 
-    [Authorize]
+    
     [Route("api/v1")]
     [ApiController]
     
