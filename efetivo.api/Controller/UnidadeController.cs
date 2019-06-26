@@ -19,7 +19,7 @@ namespace efetivo.api.Controller
     public class UnidadeController : ControllerBase
     {
 
-
+        [Authorize]
         [HttpGet("unidades")]
         [ProducesResponseType(typeof(UnidadesContigenteModel), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -32,7 +32,7 @@ namespace efetivo.api.Controller
         }
 
 
-
+        [Authorize]
         [HttpGet("unidade/{id}")]
         [ProducesResponseType(typeof(UnidadesContigenteModel), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
