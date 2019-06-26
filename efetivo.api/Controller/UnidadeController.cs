@@ -20,23 +20,25 @@ namespace efetivo.api.Controller
     {
 
 
-        [HttpGet("unidade")]
-        [ProducesResponseType(typeof(ResumoModel), StatusCodes.Status200OK)]
+        [HttpGet("unidades")]
+        [ProducesResponseType(typeof(UnidadesContigenteModel), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ResumoModel> Unidade()
-        {   
-            return await  ResumoNegocio.Instance.GetResumo(1);
+        public async Task<List<UnidadesContigenteModel>> Unidades()
+        {
+
+
+            return await UnidadesNegocio.Instance.GetUnidades();
 
         }
 
 
 
-        [HttpGet("unidades/{id}")]
-        [ProducesResponseType(typeof(ResumoModel), StatusCodes.Status200OK)]
+        [HttpGet("unidade/{id}")]
+        [ProducesResponseType(typeof(UnidadesContigenteModel), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ResumoModel> Unidades(int id)
+        public async Task<UnidadesContigenteModel> Unidades(int id)
         {
-            return await ResumoNegocio.Instance.GetResumo(1);
+            return await UnidadesNegocio.Instance.GetUnidade(1);
 
         }
     }

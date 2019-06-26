@@ -23,7 +23,15 @@ namespace efetivo.model.converter
 
                     return new UnidadesContigenteModel
                     {
-                        IdUnidade = origin.IdUnidade
+                        IdUnidade = origin.IdUnidade,
+                        NomeUnidade = origin.NomeUnidade,
+                        Regiao = origin.Regiao,
+                        Sigla = origin.Sigla,
+                        Bairro = origin.Bairro,
+                        Cidade = origin.Cidade,
+                        UnidadeFederativa = origin.UnidadeFederativa,
+                        ImagemUnidade = origin.ImagemUnidade,
+                        Contigente = origin.Contigente
                     };
                 });
             }
@@ -43,7 +51,15 @@ namespace efetivo.model.converter
                 return Task.Run(() => {
                     return new UnidadesContigenteEntidade
                     {
-                        IdUnidade = origin.IdUnidade
+                        IdUnidade = origin.IdUnidade,
+                        NomeUnidade = origin.NomeUnidade,
+                        Regiao = origin.Regiao,
+                        Sigla = origin.Sigla,
+                        Bairro = origin.Bairro,
+                        Cidade = origin.Cidade,
+                        UnidadeFederativa = origin.UnidadeFederativa,
+                        ImagemUnidade = origin.ImagemUnidade,
+                        Contigente = origin.Contigente
                     };
                 });
             }
@@ -61,7 +77,15 @@ namespace efetivo.model.converter
 
                 return new UnidadesContigenteModel
                 {
-                    IdUnidade = origin.IdUnidade
+                    IdUnidade = origin.IdUnidade,
+                    NomeUnidade = origin.NomeUnidade,
+                    Regiao = origin.Regiao,
+                    Sigla = origin.Sigla,
+                    Bairro = origin.Bairro,
+                    Cidade = origin.Cidade,
+                    UnidadeFederativa = origin.UnidadeFederativa,
+                    ImagemUnidade = origin.ImagemUnidade,
+                    Contigente = origin.Contigente
                 };
 
             }
@@ -79,7 +103,15 @@ namespace efetivo.model.converter
             {
                 return new UnidadesContigenteEntidade
                 {
-                    IdUnidade = origin.IdUnidade
+                    IdUnidade = origin.IdUnidade,                                    
+                    NomeUnidade = origin.NomeUnidade,
+                    Regiao = origin.Regiao,
+                    Sigla = origin.Sigla,
+                    Bairro = origin.Bairro,
+                    Cidade = origin.Cidade,
+                    UnidadeFederativa = origin.UnidadeFederativa,
+                    ImagemUnidade = origin.ImagemUnidade,
+                    Contigente = origin.Contigente
                 };
             }
         }

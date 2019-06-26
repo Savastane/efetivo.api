@@ -33,5 +33,7 @@ namespace efetivo.model
 
         public string ImagemUnidade { get; set; }
 
+        public int Contigente { get; set; }
+
     }
 }

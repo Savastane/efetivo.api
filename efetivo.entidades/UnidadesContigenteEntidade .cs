@@ -35,5 +35,8 @@ namespace efetivo.entidades
         [Column("img_unidade")]
         public string ImagemUnidade { get; set; }
 
+        [Column("contigente")]
+        public int Contigente { get; set; }
+
     }
 }

@@ -9,7 +9,6 @@ namespace efetivo.negocio
     using System.Threading.Tasks;
     using System.Linq;    
     using efetivo.model;
-    using System.Collections.Generic;
 
     public class ResumoNegocio:  IResumoNegocio
     {
@@ -44,16 +43,6 @@ namespace efetivo.negocio
             return await repositorio.GetResumo(id_unidade);
 
         }
-
-        public async Task<List<UnidadesContigenteModel>> GetUnidadesContigente()
-        {            
-            using (UnidadesContigenteRepositorio repositorio = new UnidadesContigenteRepositorio())
-            {
-                return await repositorio.GetUnidadesContigente();
-            }
-                        
-        }
-        
 
 
     }

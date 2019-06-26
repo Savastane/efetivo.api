@@ -18,6 +18,7 @@ namespace efetivo.entidades
         */
         public DbSet<ResumoEntidade> ResumoEntity { get; set; }
         public DbSet<UsuarioEntidade> UsuarioEntity { get; set; }
+        public DbSet<UnidadesContigenteEntidade> UnidadesContigenteEntity { get; set; }
 
 
         /*

@@ -20,7 +20,7 @@ namespace efetivo.api.Controller
     {
 
         [Authorize]
-        [HttpGet("Resumo/{id}")]
+        [HttpGet("resumo/{id}")]
         [ProducesResponseType(typeof(ResumoModel), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ResumoModel> Resumo(int id)
@@ -31,12 +31,12 @@ namespace efetivo.api.Controller
 
 
         [Authorize]
-        [HttpGet("UnidadesContigente")]
+        [HttpGet("resumo")]
         [ProducesResponseType(typeof(ResumoModel), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<List<UnidadesContigenteModel>> GetUnidadesContigente()
         {
-            return await ResumoNegocio.Instance.GetUnidadesContigente();
+            return null; // await ResumoNegocio.Instance.GetResumo(1);
         }
 
     }
