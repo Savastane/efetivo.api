@@ -2,79 +2,139 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using efetivo.entidades;
-using reusecode.ValueObjct;
-
+using System.Threading.Tasks;
+using efetivo.entity;
+using infra.valueobject;
 
 namespace efetivo.model.converter
 {
-    public class LoginConverter : IParser<LoginModel, UsuarioEntidade>, IParser<UsuarioEntidade, LoginModel>
+    public class LoginConverter : IParserAsync<LoginModel, UsuarioEntity>, IParserAsync<UsuarioEntity, LoginModel>
     {
-        public LoginModel Parse(UsuarioEntidade origin)
+        public async Task<LoginModel> Parse(UsuarioEntity origin)
+        {
+            if (origin == null)
+            {
+
+                return await Task.Run(() => { return new LoginModel(); });
+             
+            }
+            else {
+
+                return await Task.Run(() => {
+                                            return new LoginModel
+                                        {
+                                            IdUsuario = origin.IdUsuario,
+                                            Email = origin.Email,
+                                            Senha = origin.Senha,
+                                            Nome = origin.Nome,
+                                            Matricula = origin.Matricula,
+                                            Token = origin.Token
+                                        };
+                });
+            }
+            
+            
+        }
+
+        public async Task<UsuarioEntity> Parse(LoginModel origin)
+        {
+            if (origin == null)
+            {
+
+                return await Task.Run(() => { return new UsuarioEntity(); });
+                                
+            }
+            else
+            {
+                return await Task.Run(() =>
+                {
+                    return new UsuarioEntity
+                    {
+                        IdUsuario = origin.IdUsuario,
+                        Email = origin.Email,
+                        Senha = origin.Senha,
+                        Nome = origin.Nome,
+                        Matricula = origin.Matricula,
+                        Token = origin.Token
+                    };
+                });
+            }
+        }
+
+      
+
+        public Task<List<LoginModel>> ParseList(IQueryable<UsuarioEntity> origin)
+        {
+            if (origin == null)
+            {
+                return Task.Run(() => {
+                    return new List<LoginModel>();
+                });
+            }
+            else
+            {
+                return Task.Run(() => {
+
+                    return origin.Select(item => ParseAwait(item)).ToList();
+                });
+            }
+        }
+
+        public Task<List<UsuarioEntity>> ParseList(IQueryable<LoginModel> origin)
+        {
+            if (origin == null)
+            {
+                return Task.Run(() => {
+                    return new List<UsuarioEntity>();
+                });
+            }
+            else
+            {
+                return Task.Run(() => {
+                    return origin.Select(item => ParseAwait(item)).ToList();
+                });
+
+
+            }
+        }
+
+
+        public LoginModel ParseAwait(UsuarioEntity origin)
         {
             if (origin == null)
             {
                 return new LoginModel();
             }
-            else {
+            else
+            {
+
 
                 return new LoginModel
                 {
-                    IdUsuario = origin.IdUsuario,
-                    Email = origin.Email,
-                    Senha = origin.Senha,
-                    Nome = origin.Nome,
-                    Matricula = origin.Matricula,
-                    Token = origin.Token
+                    IdUsuario = origin.IdUsuario
                 };
+
             }
-            
-            
+
+
         }
 
-        public UsuarioEntidade Parse(LoginModel origin)
+        public UsuarioEntity ParseAwait(LoginModel origin)
         {
             if (origin == null)
             {
-                return new UsuarioEntidade();
+                return new UsuarioEntity();
             }
             else
             {
-
-                return new UsuarioEntidade
+                return new UsuarioEntity
                 {
-                    IdUsuario = origin.IdUsuario,
-                    Email = origin.Email,
-                    Senha = origin.Senha,
-                    Nome = origin.Nome,
-                    Matricula = origin.Matricula,
-                    Token = origin.Token
+                    IdUsuario = origin.IdUsuario
                 };
             }
         }
 
-        public List<LoginModel> ParseList(List<UsuarioEntidade> origin)
-        {
-            if (origin == null)
-            {
-                return new List<LoginModel>();
-            }
-            else
-            {
-                return origin.Select(item => Parse(item)).ToList();
-            }
-        }
 
-        public List<UsuarioEntidade> ParseList(List<LoginModel> origin)
-        {
-            if (origin == null)
-            {
-                return new List<UsuarioEntidade>();
-            }
-            else
-            {
-                return origin.Select(item => Parse(item)).ToList();
-            }
-        }
+
     }
 }

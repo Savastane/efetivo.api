@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using efetivo.entidades;
-using reusecode.ValueObjct;
+using efetivo.entity;
+using infra.valueobject;
 
 
 namespace efetivo.model.converter
 {
-    public class ResumoConverter : IParserAsync<ResumoModel, ResumoEntidade>, IParserAsync<ResumoEntidade, ResumoModel>
+    public class ResumoConverter : IParserAsync<ResumoModel, ResumoEntity>, IParserAsync<ResumoEntity, ResumoModel>
     {
-        public Task<ResumoModel> Parse(ResumoEntidade origin)
+        public Task<ResumoModel> Parse(ResumoEntity origin)
         {
             if (origin == null)
             {
@@ -31,25 +31,25 @@ namespace efetivo.model.converter
             
         }
 
-        public Task<ResumoEntidade> Parse(ResumoModel origin)
+        public Task<ResumoEntity> Parse(ResumoModel origin)
         {
             if (origin == null)
             {
-                return Task.Run(() => { return new ResumoEntidade(); });  
+                return Task.Run(() => { return new ResumoEntity(); });  
             }
             else
             {
 
                 return Task.Run(() => {
-                    return new ResumoEntidade
-                            {
+                    return new ResumoEntity
+                    {
                                 Id = origin.Id
                             };
                 });
             }
         }
 
-        public ResumoModel ParseAwait(ResumoEntidade origin)
+        public ResumoModel ParseAwait(ResumoEntity origin)
         {
             if (origin == null)
             {
@@ -69,22 +69,22 @@ namespace efetivo.model.converter
 
         }
 
-        public ResumoEntidade ParseAwait (ResumoModel origin)
+        public ResumoEntity ParseAwait (ResumoModel origin)
         {
             if (origin == null)
             {
-                return new ResumoEntidade(); 
+                return new ResumoEntity(); 
             }
             else
             {                
-                    return new ResumoEntidade
+                    return new ResumoEntity
                     {
                         Id = origin.Id
                     };                
             }
         }
 
-        public Task<List<ResumoModel>> ParseList(IQueryable<ResumoEntidade> origin)
+        public Task<List<ResumoModel>> ParseList(IQueryable<ResumoEntity> origin)
         {
             if (origin == null)
             {
@@ -101,12 +101,12 @@ namespace efetivo.model.converter
             }
         }
 
-        public Task<List<ResumoEntidade>> ParseList(IQueryable<ResumoModel> origin)
+        public Task<List<ResumoEntity>> ParseList(IQueryable<ResumoModel> origin)
         {
             if (origin == null)
             {
                 return  Task.Run(() => {
-                    return new List<ResumoEntidade>();
+                    return new List<ResumoEntity>();
                 });
             }
             else
@@ -119,4 +119,5 @@ namespace efetivo.model.converter
             }
         }
     }
+
 }

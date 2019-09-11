@@ -1,4 +1,4 @@
-﻿namespace DataEngineer.exceptions
+﻿namespace infra.generics.repository.exceptions
 {
     using System;
 

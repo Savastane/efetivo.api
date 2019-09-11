@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace efetivo.negocio
+namespace efetivo.domain
 {
-    public interface IResumoNegocio
+    public interface IResumoDomain
     {
     }
 }

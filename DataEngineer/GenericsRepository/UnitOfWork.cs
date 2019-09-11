@@ -1,9 +1,9 @@
-﻿namespace DataEngineer
+﻿namespace infra.generics.repository
 {
 
     using System;
     
-    using DataEngineer.exceptions;
+    using infra.generics.repository.exceptions;
     using System.Data;
     using System.Data.Common;
     using Microsoft.EntityFrameworkCore;
@@ -368,7 +368,7 @@
         {
             List<TModel> result = new List<TModel>();
 
-            DataTable dt = this.GetDataTale(_sql, _param, _cmdType);
+            DataTable dt = this.GetDataTable(_sql, _param, _cmdType);
 
             return this.GetMapModel<TModel>(dt);
         }

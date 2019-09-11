@@ -1,6 +1,6 @@
 ﻿
 
-namespace efetivo.entidades
+namespace efetivo.entity
 {
 
     using System.ComponentModel.DataAnnotations;
@@ -8,11 +8,11 @@ namespace efetivo.entidades
 
 
     [Table("vw_unidades_contigente")]
-    public partial class UnidadesContigenteEntidade
+    public partial class UnidadesContigenteEntity
     {
         [Key]
         [Column("id_unidade")]
-        public int IdUnidade { get; set; }
+        public decimal IdUnidade { get; set; }
         
         [Column("nome_unidade")]
         public string  NomeUnidade { get; set; }

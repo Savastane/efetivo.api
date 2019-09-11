@@ -1,6 +1,6 @@
 ﻿
 
-namespace efetivo.entidades
+namespace efetivo.entity
 {
 
     using System.ComponentModel.DataAnnotations;
@@ -8,7 +8,7 @@ namespace efetivo.entidades
 
 
     [Table("resumo")]
-    public partial class ResumoEntidade
+    public partial class ResumoEntity
     {
         [Key]
         [Column("id_resumo")]

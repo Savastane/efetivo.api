@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\efetivo.model\efetivo.model.csproj" />
-    <ProjectReference Include="..\efetivo.repositorio\efetivo.repositorio.csproj" />
+    <ProjectReference Include="..\efetivo.repositorio\efetivo.repository.csproj" />
   </ItemGroup>
 
 </Project>

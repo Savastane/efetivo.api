@@ -4,7 +4,7 @@ using System.Data.Common;
 using System.Collections.Generic;
 
 
-namespace DataEngineer
+namespace infra.generics.repository
 {
     
     using System.Reflection;

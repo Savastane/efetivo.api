@@ -1,24 +1,24 @@
 ﻿
 
-namespace efetivo.repositorio
+namespace efetivo.repository
 {
 
-    using DataEngineer;
-    using efetivo.entidades;
+    using infra.generics.repository;
+    using efetivo.entity;
     using efetivo.model;
     using efetivo.model.converter;
     using System.Threading.Tasks;
 
-    public class ResumoRepositorio : BaseRepositorio<ResumoEntidade, EfetivoContext>
+    public class ResumoRepository : BaseRepositorio<ResumoEntity, EfetivoContext>
     {
 
-        public ResumoRepositorio() :
+        public ResumoRepository() :
             base(null)
         {
 
         }
 
-        public ResumoRepositorio(IUnitOfWork unitOfWork) :
+        public ResumoRepository(IUnitOfWork unitOfWork) :
             base(unitOfWork)
         {
 

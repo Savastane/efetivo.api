@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace reusecode.ValueObjct
+namespace infra.valueobject
 {
     public interface IParser<TOrigin, TFrom>
     {

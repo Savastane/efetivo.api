@@ -1,26 +1,26 @@
 ﻿
 
-namespace efetivo.repositorio
+namespace efetivo.repository
 {
 
-    using DataEngineer;
-    using efetivo.entidades;
+    using infra.generics.repository;
+    using efetivo.entity;
     using efetivo.model;
     using efetivo.model.converter;
     using System.Threading.Tasks;
     using System.Linq;
     using System.Collections.Generic;
 
-    public class UnidadesContigenteRepositorio : BaseRepositorio<UnidadesContigenteEntidade, EfetivoContext>
+    public class UnidadesContigenteRepository : BaseRepositorio<UnidadesContigenteEntity, EfetivoContext>
     {
 
-        public UnidadesContigenteRepositorio() :
+        public UnidadesContigenteRepository() :
             base(null)
         {
 
         }
 
-        public UnidadesContigenteRepositorio(IUnitOfWork unitOfWork) :
+        public UnidadesContigenteRepository(IUnitOfWork unitOfWork) :
             base(unitOfWork)
         {
 
@@ -28,7 +28,7 @@ namespace efetivo.repositorio
 
 
 
-        public async Task<List<UnidadesContigenteModel>> GetUnidadesContigente()
+        public async Task<List<UnidadesContigenteModel>> GetAllUnits()
         {
             return await new UnidadesContigenteConverter().ParseList(
                this.List()

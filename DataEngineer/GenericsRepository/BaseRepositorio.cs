@@ -1,5 +1,5 @@
 ﻿
-namespace DataEngineer
+namespace infra.generics.repository
 {
     using System;
     using System.Data;
@@ -8,7 +8,7 @@ namespace DataEngineer
     using System.Linq.Expressions;
     
     using Microsoft.EntityFrameworkCore;
-
+    using System.Threading.Tasks;
 
     public class BaseRepositorio<TEntity, TContext> : IBaseRepositorio<TEntity>
         where TEntity : class
@@ -96,8 +96,15 @@ namespace DataEngineer
         public virtual void Add(TEntity _entity)
         {
             
-
             dbSet.Add(_entity);
+        }
+
+        public virtual async Task<TEntity> AddAsync(TEntity _entity)
+        {
+            
+            await dbSet.AddAsync(_entity);
+
+            return _entity;
         }
 
         public virtual void AddAll(TEntity _entity)
@@ -310,6 +317,12 @@ namespace DataEngineer
 
             return split.Aggregate((atual, next) => atual + '.' + next);
         }
+
+        public void Save()
+        {
+            this.UnitOfWork.Save();
+        }
+        
 
 
 

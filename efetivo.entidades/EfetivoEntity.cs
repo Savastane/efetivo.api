@@ -1,18 +1,25 @@
 ﻿
 
-namespace efetivo.entidades
+namespace efetivo.entity
 {
-
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
 
     [Table("efetivo")]
-    public partial class EfetivoEntidade
+    public partial class EfetivoEntity
     {
+        public EfetivoEntity()
+        {
+            
+            this.EfetivoUnidadeEntidade = new HashSet<EfetivoUnidadeEntidade>();
+        }
+
+
         [Key]
         [Column("id_efetivo")]
-        public int IdEfetivo { get; set; }
+        public decimal IdEfetivo { get; set; }
 
         [Column("nome")]
         public string  Nome { get; set; }
@@ -26,10 +33,8 @@ namespace efetivo.entidades
         [Column("celular")]
         public string Celular { get; set; }
 
-
         [Column("cpf")]
         public string CPF { get; set; }
-
         
         [Column("email")]
         public string Email { get; set; }
@@ -44,13 +49,16 @@ namespace efetivo.entidades
         public int idPosto { get; set; }
 
         [Column("id_unidade")]
-        public int idUnidade { get; set; }
+        public decimal idUnidade { get; set; }
 
         [Column("fl_situacao")]
         public string flag_situacao { get; set; }
 
         [Column("fl_perfil")]
         public string flag_perfil { get; set; }
+
+        public virtual ICollection<EfetivoUnidadeEntidade> EfetivoUnidadeEntidade { get; set; }
+
 
     }
 }

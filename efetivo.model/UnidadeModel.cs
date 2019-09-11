@@ -10,7 +10,7 @@ namespace efetivo.model
 
 
         
-        public int IdUnidade { get; set; }
+        public decimal IdUnidade { get; set; }
 
         
         public string Nome { get; set; }

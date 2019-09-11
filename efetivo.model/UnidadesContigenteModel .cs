@@ -10,7 +10,7 @@ namespace efetivo.model
     public partial class UnidadesContigenteModel
     {
     
-        public int IdUnidade { get; set; }
+        public decimal  IdUnidade { get; set; }
         
     
         public string  NomeUnidade { get; set; }

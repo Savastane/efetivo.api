@@ -7,7 +7,7 @@ namespace efetivo.api.Controller
     using System.Linq;
     using System.Threading.Tasks;
     using efetivo.model;
-    using efetivo.negocio;
+    using efetivo.domain;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
@@ -19,7 +19,7 @@ namespace efetivo.api.Controller
     public class RegiaoController : ControllerBase
     {
 
-
+        /*
         [HttpGet("Unidade")]
         [ProducesResponseType(typeof(ResumoModel), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -28,6 +28,7 @@ namespace efetivo.api.Controller
             return await  ResumoNegocio.Instance.GetResumo(1);
 
         }
+        */
     }
 }
 

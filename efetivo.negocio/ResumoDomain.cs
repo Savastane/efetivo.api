@@ -1,25 +1,25 @@
 ﻿
 
 
-namespace efetivo.negocio
+namespace efetivo.domain
 {
 
-    using efetivo.repositorio;
+    using efetivo.repository;
     using System;    
     using System.Threading.Tasks;
     using System.Linq;    
     using efetivo.model;
 
-    public class ResumoNegocio:  IResumoNegocio
+    public class ResumoDomain :  IResumoDomain
     {
         #region Singleton
 
-        private ResumoRepositorio repositorio = new ResumoRepositorio();
+        private ResumoRepository repositorio = new ResumoRepository();
             
-        private static volatile ResumoNegocio instance;
+        private static volatile ResumoDomain instance;
         private static object syncRoot = new Object();
 
-        public static ResumoNegocio Instance
+        public static ResumoDomain Instance
         {
             get
             {
@@ -28,7 +28,7 @@ namespace efetivo.negocio
                     lock (syncRoot)
                     {
                         if (instance == null)
-                            instance = new ResumoNegocio();
+                            instance = new ResumoDomain();
                     }
                 }
 

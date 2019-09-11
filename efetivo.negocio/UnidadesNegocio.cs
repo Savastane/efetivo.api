@@ -1,21 +1,21 @@
 ﻿
 
 
-namespace efetivo.negocio
+namespace efetivo.domain
 {
 
-    using efetivo.repositorio;
+    using efetivo.repository;
     using System;    
     using System.Threading.Tasks;
     using System.Linq;    
     using efetivo.model;
     using System.Collections.Generic;
 
-    public class UnidadesNegocio:  IResumoNegocio
+    public class UnidadesNegocio:  IResumoDomain
     {
         #region Singleton
 
-        private UnidadesContigenteRepositorio repositorio = new UnidadesContigenteRepositorio();
+        private UnidadesContigenteRepository repositorio = new UnidadesContigenteRepository();
             
         private static volatile UnidadesNegocio instance;
         private static object syncRoot = new Object();
@@ -39,18 +39,19 @@ namespace efetivo.negocio
 
         #endregion Singleton
 
+        /*
         public async Task<UnidadesContigenteModel> GetUnidade(int id_unidade)
         {
             return null;
 
         }
-
+        
 
         public async Task<List<UnidadesContigenteModel>> GetUnidades()
         {
-            return await repositorio.GetUnidadesContigente();
+            return  repositorio.GetUnidadesContigente();
 
         }
-
+        */
     }
 }

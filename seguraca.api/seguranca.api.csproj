@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\efetivo.entidades\efetivo.entity.csproj" />
+    <ProjectReference Include="..\efetivo.entidades\efetivo.entidades.csproj" />
     <ProjectReference Include="..\efetivo.model\efetivo.model.csproj" />
-    <ProjectReference Include="..\efetivo.negocio\efetivo.domain.csproj" />
+    <ProjectReference Include="..\efetivo.negocio\efetivo.negocio.csproj" />
   </ItemGroup>
 
 </Project>

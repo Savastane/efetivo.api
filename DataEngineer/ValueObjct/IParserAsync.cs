@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
 
-namespace reusecode.ValueObjct
+namespace infra.valueobject
 {
     public interface IParserAsync<TOrigin, TFrom>
     {

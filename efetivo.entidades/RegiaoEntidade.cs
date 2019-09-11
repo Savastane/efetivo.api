@@ -12,7 +12,7 @@ namespace efetivo.entidades
     {
         [Key]
         [Column("id_regiao")]
-        public int IdPosto { get; set; }
+        public int IdRegiao { get; set; }
 
         [Column("nome")]
         public string  Nome { get; set; }

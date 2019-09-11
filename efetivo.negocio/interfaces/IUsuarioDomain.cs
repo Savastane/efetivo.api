@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 
 
-namespace efetivo.negocio
+namespace efetivo.domain
 {
-    public  interface IUsuarioNegocio
+    public  interface IUsuarioDomain
     {
         //UsuarioEntidade Authenticate(string username, string password);
        // IEnumerable<UsuarioEntidade> GetAll();

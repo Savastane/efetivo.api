@@ -1,18 +1,26 @@
 ﻿
 
-namespace efetivo.entidades
+namespace efetivo.entity
 {
-
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
 
     [Table("unidade")]
-    public partial class UnidadeEntidade
+    public partial class UnidadeEntity
     {
+        /*
+        public UnidadeEntidade()
+        {
+
+         //   this.EfetivoUnidadeEntidade = new HashSet<EfetivoUnidadeEntidade>();
+        }
+        */
+
         [Key]
         [Column("id_unidade")]
-        public int IdUnidade { get; set; }
+        public decimal IdUnidade { get; set; }
 
         [Column("nome")]
         public string  Nome { get; set; }
@@ -46,5 +54,9 @@ namespace efetivo.entidades
 
         [Column("logitude")]
         public decimal Longitude { get; set; }
+
+
+      //  public virtual ICollection<EfetivoUnidadeEntidade> EfetivoUnidadeEntidade { get; set; }
+
     }
 }

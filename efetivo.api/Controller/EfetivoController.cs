@@ -7,7 +7,7 @@ namespace efetivo.api.Controller
     using System.Linq;
     using System.Threading.Tasks;
     using efetivo.model;
-    using efetivo.negocio;
+    using efetivo.domain;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
@@ -18,14 +18,14 @@ namespace efetivo.api.Controller
     
     public class EfetivoController : ControllerBase
     {
-
+        /*
 
         [HttpGet("Efetivo")]
         [ProducesResponseType(typeof(ResumoModel), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ResumoModel>  Efetivo(int id_efetivo)
         {   
-            return await  ResumoNegocio.Instance.GetResumo(1);
+            return await  ResumoDomain.Instance.GetResumo(1);
         }
 
 
@@ -34,8 +34,9 @@ namespace efetivo.api.Controller
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ResumoModel> EfetivoUnidade(int id_unidade)
         {
-            return await ResumoNegocio.Instance.GetResumo(1);
+            return await ResumoDomain.Instance.GetResumo(1);
         }
+        */
 
     }
 }

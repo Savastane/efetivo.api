@@ -3,7 +3,7 @@ using System.Data;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataEngineer
+namespace infra.generics.repository
 {
     public interface IUnitOfWork : IDisposable
     {

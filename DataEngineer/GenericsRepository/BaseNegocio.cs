@@ -1,6 +1,6 @@
 ﻿
 
-namespace DataEngineer
+namespace infra.generics.repository
 {
     
     using System;
@@ -125,7 +125,7 @@ namespace DataEngineer
                 this.saveUnitOfWork();
             }
                    
-            catch (DbUpdateConcurrencyException ex)
+            catch (DbUpdateConcurrencyException)
             {
                 this.repository.Reload(_entity);
                 this.saveUnitOfWork();
@@ -145,7 +145,7 @@ namespace DataEngineer
                 this.repository.Edit(entity, predicate);
                 this.saveUnitOfWork();
             }
-            catch (DbUpdateConcurrencyException ex)
+            catch (DbUpdateConcurrencyException)
             {
                 this.repository.Reload(entity);
                 this.saveUnitOfWork();
@@ -166,7 +166,7 @@ namespace DataEngineer
 
             //Microsoft.EntityFrameworkCore.DbUpdateException
 
-            catch (DbUpdateException ex)
+            catch (DbUpdateException)
             {
                 this.repository.Reload(_entity);
                 this.saveUnitOfWork();

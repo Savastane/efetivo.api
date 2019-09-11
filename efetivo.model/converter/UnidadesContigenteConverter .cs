@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using efetivo.entidades;
-using reusecode.ValueObjct;
+using efetivo.entity;
+using infra.valueobject;
 
 namespace efetivo.model.converter
 {
-    public class UnidadesContigenteConverter : IParserAsync<UnidadesContigenteModel, UnidadesContigenteEntidade>, IParserAsync<UnidadesContigenteEntidade, UnidadesContigenteModel>
+    public class UnidadesContigenteConverter : IParserAsync<UnidadesContigenteModel, UnidadesContigenteEntity>, IParserAsync<UnidadesContigenteEntity, UnidadesContigenteModel>
     {
-        public Task<UnidadesContigenteModel> Parse(UnidadesContigenteEntidade origin)
+        public Task<UnidadesContigenteModel> Parse(UnidadesContigenteEntity origin)
         {
             if (origin == null)
             {
@@ -39,17 +39,17 @@ namespace efetivo.model.converter
 
         }
 
-        public Task<UnidadesContigenteEntidade> Parse(UnidadesContigenteModel origin)
+        public Task<UnidadesContigenteEntity> Parse(UnidadesContigenteModel origin)
         {
             if (origin == null)
             {
-                return Task.Run(() => { return new UnidadesContigenteEntidade(); });
+                return Task.Run(() => { return new UnidadesContigenteEntity(); });
             }
             else
             {
 
                 return Task.Run(() => {
-                    return new UnidadesContigenteEntidade
+                    return new UnidadesContigenteEntity
                     {
                         IdUnidade = origin.IdUnidade,
                         NomeUnidade = origin.NomeUnidade,
@@ -65,7 +65,7 @@ namespace efetivo.model.converter
             }
         }
 
-        public UnidadesContigenteModel ParseAwait(UnidadesContigenteEntidade origin)
+        public UnidadesContigenteModel ParseAwait(UnidadesContigenteEntity origin)
         {
             if (origin == null)
             {
@@ -93,15 +93,15 @@ namespace efetivo.model.converter
 
         }
 
-        public UnidadesContigenteEntidade ParseAwait(UnidadesContigenteModel origin)
+        public UnidadesContigenteEntity ParseAwait(UnidadesContigenteModel origin)
         {
             if (origin == null)
             {
-                return new UnidadesContigenteEntidade();
+                return new UnidadesContigenteEntity();
             }
             else
             {
-                return new UnidadesContigenteEntidade
+                return new UnidadesContigenteEntity
                 {
                     IdUnidade = origin.IdUnidade,                                    
                     NomeUnidade = origin.NomeUnidade,
@@ -116,7 +116,7 @@ namespace efetivo.model.converter
             }
         }
 
-        public Task<List<UnidadesContigenteModel>> ParseList(IQueryable<UnidadesContigenteEntidade> origin)
+        public Task<List<UnidadesContigenteModel>> ParseList(IQueryable<UnidadesContigenteEntity> origin)
         {
             if (origin == null)
             {
@@ -135,12 +135,12 @@ namespace efetivo.model.converter
             }
         }
 
-        public Task<List<UnidadesContigenteEntidade>> ParseList(IQueryable<UnidadesContigenteModel> origin)
+        public Task<List<UnidadesContigenteEntity>> ParseList(IQueryable<UnidadesContigenteModel> origin)
         {
             if (origin == null)
             {
                 return Task.Run(() => {
-                    return new List<UnidadesContigenteEntidade>();
+                    return new List<UnidadesContigenteEntity>();
                 });
             }
             else

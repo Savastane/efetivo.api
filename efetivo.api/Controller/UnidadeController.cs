@@ -7,7 +7,7 @@ namespace efetivo.api.Controller
     using System.Linq;
     using System.Threading.Tasks;
     using efetivo.model;
-    using efetivo.negocio;
+    using efetivo.domain;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
@@ -18,6 +18,7 @@ namespace efetivo.api.Controller
     
     public class UnidadeController : ControllerBase
     {
+        /*
 
         [Authorize]
         [HttpGet("unidades")]
@@ -30,8 +31,8 @@ namespace efetivo.api.Controller
             return await UnidadesNegocio.Instance.GetUnidades();
 
         }
-
-
+        */
+       /*
         [Authorize]
         [HttpGet("unidade/{id}")]
         [ProducesResponseType(typeof(UnidadesContigenteModel), StatusCodes.Status200OK)]
@@ -41,6 +42,7 @@ namespace efetivo.api.Controller
             return await UnidadesNegocio.Instance.GetUnidade(1);
 
         }
+        */
     }
 
     

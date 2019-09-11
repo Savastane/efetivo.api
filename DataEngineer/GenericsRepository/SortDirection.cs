@@ -1,4 +1,4 @@
-﻿namespace DataEngineer
+﻿namespace infra.generics.repository
 {
     public enum SortDirection
     {

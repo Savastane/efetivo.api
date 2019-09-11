@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DataEngineer\reusecode.csproj" />
-    <ProjectReference Include="..\efetivo.entidades\efetivo.entidades.csproj" />
+    <ProjectReference Include="..\DataEngineer\infraestrutura.csproj" />
+    <ProjectReference Include="..\efetivo.entidades\efetivo.entity.csproj" />
   </ItemGroup>
 
 </Project>
