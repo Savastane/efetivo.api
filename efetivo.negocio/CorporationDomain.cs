@@ -45,7 +45,7 @@ namespace efetivo.domain
         #region Unit
 
         public Task<List<UnidadesContigenteModel>> GetAllViewUnits()
-        {                        
+        { 
             return new UnidadesContigenteRepository().GetAllUnits();
         }
 

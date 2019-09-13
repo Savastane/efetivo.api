@@ -11,9 +11,9 @@ namespace efetivo.api.Controller
     using System.Threading.Tasks;
 
     [Authorize]
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/seguranca")]
     [ApiController]
-    public class SegurancaController : ControllerBase
+    public class SecurityController : ControllerBase
     {
 
         //private IUsuarioDomain _UsuarioNegocio;
@@ -26,10 +26,18 @@ namespace efetivo.api.Controller
         [HttpGet]
         public IActionResult Get()
         {
-            //var claims (System.Security.Claims.ClaimsIdentity)User.Identity;
 
-            string nome = "<h1><B>v.alpha.1.0.0.0</B></h1>";
-            return Ok(nome);
+            //var claims (System.Security.Claims.ClaimsIdentity)User.Identity;
+            var content = "<html><head><meta charset = \"UTF-8\"></head><body><br><h> API. Versão.Alpha.1.0.0.0</h><p></p></body></html>";
+
+            return new ContentResult()
+            {
+                Content = content,
+                ContentType = "text/html",
+            };
+
+            //string nome = "";
+            //return Ok(nome);
 
         }
 
@@ -74,23 +82,21 @@ namespace efetivo.api.Controller
             
         }
 
-        [HttpGet("usuarioTest")]        
-        public IActionResult GetUserTest()
+        [HttpGet("claim")]        
+        public IActionResult GetUser()
         {
+            //var claims (System.Security.Claims.ClaimsIdentity)User.Identity;
+
             
             return Ok(EnvironmentDomain.Instance.User);
             
         }
 
         [HttpGet("usuario")]
-        public IActionResult GetUser()
+        public IActionResult Getclaim() 
         {
 
-            // carrega Environment
             SecurityDomain.Instance.InicializeEnvironment(User);
-
-            //Ok - SecurityDomain.Instance.getClaim(User)
-
             return Ok(EnvironmentDomain.Instance.User);            
         }
 

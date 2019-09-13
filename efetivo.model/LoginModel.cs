@@ -8,7 +8,7 @@ namespace efetivo.model
     public partial class LoginModel 
     {        
         
-        public int IdUsuario { get; set; }
+        public decimal IdUsuario { get; set; }
                 
         public string Nome { get; set; }
                 

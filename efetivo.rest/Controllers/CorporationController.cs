@@ -11,9 +11,9 @@ namespace efetivo.api.Controller
     using System.Threading.Tasks;
 
     [Authorize]
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/corporacao")]
     [ApiController]
-    public class SegurancaController : ControllerBase
+    public class CorporationController : ControllerBase
     {
 
         //private IUsuarioDomain _UsuarioNegocio;
@@ -23,13 +23,13 @@ namespace efetivo.api.Controller
         //    _UsuarioNegocio = UsuarioNegocio;
         //}
         [AllowAnonymous]
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet("unidades")]
+        public async Task<IActionResult> Get()
         {
-            //var claims (System.Security.Claims.ClaimsIdentity)User.Identity;
 
-            string nome = "<h1><B>v.alpha.1.0.0.0</B></h1>";
-            return Ok(nome);
+            var lista = await CorporationDomain.Instance.GetAllViewUnits();
+
+            return Ok(lista);            
 
         }
 
@@ -74,23 +74,13 @@ namespace efetivo.api.Controller
             
         }
 
-        [HttpGet("usuarioTest")]        
-        public IActionResult GetUserTest()
-        {
-            
-            return Ok(EnvironmentDomain.Instance.User);
-            
-        }
+        
 
         [HttpGet("usuario")]
-        public IActionResult GetUser()
+        public IActionResult Getclaim() 
         {
 
-            // carrega Environment
             SecurityDomain.Instance.InicializeEnvironment(User);
-
-            //Ok - SecurityDomain.Instance.getClaim(User)
-
             return Ok(EnvironmentDomain.Instance.User);            
         }
 

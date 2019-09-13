@@ -12,7 +12,7 @@ namespace efetivo.entity
     {
         [Key]
         [Column("id_usuario")]
-        public int IdUsuario { get; set; }
+        public decimal IdUsuario { get; set; }
 
         [Column("nome")]
         public string  Nome { get; set; }

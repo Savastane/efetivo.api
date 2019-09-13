@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace efetivo.api
+namespace efetivo.rest
 {
     public class Program
     {
@@ -20,6 +20,5 @@ namespace efetivo.api
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
-                 
     }
 }

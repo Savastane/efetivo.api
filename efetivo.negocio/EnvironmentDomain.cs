@@ -71,6 +71,14 @@ namespace efetivo.domain
 
         #endregion Adds
 
+        public async void Inicialize(decimal IdUser)
+        {
+
+            this.User = await SecurityDomain.Instance.getUser(IdUser);
+            
+            EnvironmentDomain.instance.AddUser(this.User);
+            
+        }
 
     }
 }

@@ -1,40 +1,40 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
 
-namespace efetivo.api
+namespace efetivo.rest
 {
-    
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.AspNetCore.Authentication.JwtBearer;
-    using System.Text;
-    using Microsoft.IdentityModel.Tokens;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Configuration;
-
     public class Startup
     {
-        // https://devcenter.heroku.com/articles/git heroku
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         string Secret = "UmaChave@FortePrecisadeNumeros2020";
+
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-
         public IConfiguration Configuration { get; }
 
+        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-        
 
 
-
-            var key = Encoding.ASCII.GetBytes(this.Secret) ;
+            var key = Encoding.ASCII.GetBytes(this.Secret);
 
 
             services.AddAuthentication(x => {
@@ -51,8 +51,7 @@ namespace efetivo.api
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
-            }); 
-
+            });
 
 
         }
@@ -60,7 +59,6 @@ namespace efetivo.api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -74,17 +72,16 @@ namespace efetivo.api
             // desbloqueias origems distintas de requisções a API
             app.UseCors(config => {
                 config.AllowAnyHeader();
-                config.AllowAnyMethod();                
+                config.AllowAnyMethod();
                 config.AllowAnyOrigin();
-                
+
             });
 
             app.UseAuthentication();
 
+
             app.UseHttpsRedirection();
             app.UseMvc();
         }
-
-        
     }
 }

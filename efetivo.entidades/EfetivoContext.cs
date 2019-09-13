@@ -41,8 +41,17 @@ namespace efetivo.entity
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
+            /*
+             
             
             optionsBuilder.UseInMemoryDatabase(databaseName: "database_name");
+
+
+            
+            */
+
+            
+
             base.OnConfiguring(optionsBuilder);
         }
 

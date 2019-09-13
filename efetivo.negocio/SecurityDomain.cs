@@ -105,11 +105,9 @@ namespace efetivo.domain
 
         }
 
-        public async Task<LoginModel> getUsuario()
+        public async Task<LoginModel> getUser(decimal IdUser)
         {
-            
-            
-            return await new LoginConverter().Parse(repository.Find(1)); 
+            return await new LoginConverter().Parse(repository.Find(IdUser)); 
 
         }
 
@@ -118,8 +116,33 @@ namespace efetivo.domain
             return new LoginModel { Email = login, Senha = Senha };
         }
 
-        public string getClaim(ClaimsIdentity identity)
-        {   
+
+        public void InicializeEnvironment(ClaimsPrincipal user)
+        {
+
+
+            var identity = ((ClaimsIdentity)user.Identity);
+
+            if (identity != null)
+            {
+                IEnumerable<Claim> claims = identity.Claims;
+
+                var a = identity.FindFirst(ClaimTypes.Name).Value;
+                
+                var IdUser = Convert.ToDecimal( identity.FindFirst(ClaimTypesCustom.Iduser).Value);
+
+                EnvironmentDomain.Instance.Inicialize(IdUser);
+            }
+
+            
+
+
+        }
+
+        public string getClaim(ClaimsPrincipal User)
+        {
+
+            var identity = ((ClaimsIdentity)User.Identity);
 
             if (identity != null)
             {
