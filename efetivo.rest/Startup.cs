@@ -13,6 +13,10 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
+using Swashbuckle.AspNetCore.Swagger;
+using System.IO;
+using System.Reflection;
+
 
 namespace efetivo.rest
 {
@@ -33,6 +37,50 @@ namespace efetivo.rest
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddSwaggerGen(c =>
+            {
+
+
+                c.SwaggerDoc("v1",
+                   new Info
+                   {
+                       Title = "Gerenciamento de Efetivo",
+                       Version = "v1",
+                       Description = "Gerenciamento de Efetivo",
+                       TermsOfService = "https://savastane-sa.com.br/termo",
+                       Contact = new Contact
+                       {
+                           Name = "Savastane SA",
+                           Email = "savastane@gmail.com",
+                           Url = "https://savastane-sa.com.br"
+                       },
+                       License = new License
+                       {
+                           Name = "Licença",
+                           Url = "https://savastane-sa.com.br/licença"
+                       }
+
+
+
+
+                   });
+
+                string caminhoAplicacao =
+                   System.AppDomain.CurrentDomain.BaseDirectory;
+                string nomeAplicacao =
+                    System.Reflection.Assembly.GetEntryAssembly().GetName().Name;
+                string caminhoXmlDoc =
+                    Path.Combine(caminhoAplicacao, $"{nomeAplicacao}.xml");
+
+                c.IncludeXmlComments(caminhoXmlDoc);
+
+                /*
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+                */
+
+            });
 
             var key = Encoding.ASCII.GetBytes(this.Secret);
 
@@ -81,6 +129,14 @@ namespace efetivo.rest
 
 
             app.UseHttpsRedirection();
+
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "post API V1");
+            });
+
+
             app.UseMvc();
         }
     }

@@ -7,10 +7,14 @@ using infra.generics.repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
+
 namespace efetivo.entity
 {
     public class EfetivoContext : DbContextRepositorio
     {
+
+        
+
         /*
         public EfetivoContext(DbContextOptions<EfetivoContext> options) : base(options)
         {
@@ -33,6 +37,7 @@ namespace efetivo.entity
         */
         public static IConfigurationRoot Configuration { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -42,14 +47,27 @@ namespace efetivo.entity
         {
 
             /*
-             
-            
             optionsBuilder.UseInMemoryDatabase(databaseName: "database_name");
-
-
-            
             */
 
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+
+            Configuration = builder.Build();
+
+            var stringcon = Configuration["ConnectionStrings:dbefetivo"];
+
+            bool memory = Convert.ToBoolean( Configuration["DataBase:Memory"]);
+
+            if (memory)
+            {
+                optionsBuilder.UseInMemoryDatabase(databaseName: "database_name");
+            }
+            else
+            {
+                optionsBuilder.UseNpgsql(stringcon);
+            }
             
 
             base.OnConfiguring(optionsBuilder);

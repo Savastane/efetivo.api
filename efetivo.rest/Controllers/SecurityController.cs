@@ -43,10 +43,32 @@ namespace efetivo.api.Controller
 
 
 
+        /// <summary>
+        /// Autenticar
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Todo
+        ///     {
+        ///        "id": 1,
+        ///        "name": "Item1",
+        ///        "isComplete": true
+        ///     }
+        ///
+        /// </remarks>
+        /// <param name="LoginModel"></param>
+        /// <returns>A newly created TodoItem</returns>
+        /// <response code="200">Login Válido</response>
+        /// <response code="401">Login Inválido</response>   
+        /// /// <response code="403">Problemas Com cenxão de dados</response>   
+        /// 
+
         [AllowAnonymous]
         [HttpPost("autenticar")]
         [ProducesResponseType(typeof(LoginModel), StatusCodes.Status200OK)]        
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]        
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<IActionResult> Login([FromBody]LoginModel usuario)
         {
             var retorno = SecurityDomain.Instance.Autenticar(usuario);

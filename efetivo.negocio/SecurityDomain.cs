@@ -49,7 +49,10 @@ namespace efetivo.domain
 
         #endregion Singleton
 
-        //, String secretJWT = "UmaChave@FortePrecisadeNumeros2020"
+
+
+
+
         public async Task<ReturnActionAutentication> Autenticar(LoginModel Usuario)
         {
             LoginModel local_usuario;

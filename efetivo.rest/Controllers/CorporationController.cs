@@ -35,47 +35,6 @@ namespace efetivo.api.Controller
 
 
 
-        [AllowAnonymous]
-        [HttpPost("autenticar")]
-        [ProducesResponseType(typeof(LoginModel), StatusCodes.Status200OK)]        
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<IActionResult> Login([FromBody]LoginModel usuario)
-        {
-            var retorno = SecurityDomain.Instance.Autenticar(usuario);
-            
-            var ResultAuntentication =  await SecurityDomain.Instance.Autenticar(usuario);
-
-
-            switch (ResultAuntentication)
-            {
-
-                case ReturnActionAutentication.Valid:
-
-                    return Ok(EnvironmentDomain.Instance.User);
-
-                case ReturnActionAutentication.Invalid:
-
-                    return Unauthorized();
-
-                case ReturnActionAutentication.ErrorDB:
-
-                    return Forbid();
-
-                default:
-
-                    return Unauthorized();
-
-            }
-            
-
-            
-
-
-            
-        }
-
-        
-
         [HttpGet("usuario")]
         public IActionResult Getclaim() 
         {
